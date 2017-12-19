@@ -17,6 +17,11 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Common\Classes\Registration.php" />
+    <Compile Include="Common\Classes\CourseOffer.php" />
+    <Compile Include="Common\Classes\Semester.php" />
+    <Compile Include="Common\Classes\Course.php" />
+    <Compile Include="Common\Classes\Student.php" />
     <Compile Include="Common\Footer.php" />
     <Compile Include="Common\Header.php" />
     <Compile Include="CurrentRegistration.php" />
@@ -28,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
+    <Folder Include="Common\Classes\" />
     <Folder Include="Contents\" />
     <Folder Include="Contents\AlgCss\" />
     <Folder Include="Contents\css\" />
