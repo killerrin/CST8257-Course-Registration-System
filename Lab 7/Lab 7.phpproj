@@ -17,11 +17,13 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Common\Classes\Registration.php" />
-    <Compile Include="Common\Classes\CourseOffer.php" />
-    <Compile Include="Common\Classes\Semester.php" />
-    <Compile Include="Common\Classes\Course.php" />
-    <Compile Include="Common\Classes\Student.php" />
+    <Compile Include="Common\Classes\DBManager.php" />
+    <Compile Include="Common\Classes\DBRepository.php" />
+    <Compile Include="Common\Classes\Models\Registration.php" />
+    <Compile Include="Common\Classes\Models\CourseOffer.php" />
+    <Compile Include="Common\Classes\Models\Semester.php" />
+    <Compile Include="Common\Classes\Models\Course.php" />
+    <Compile Include="Common\Classes\Models\Student.php" />
     <Compile Include="Common\Footer.php" />
     <Compile Include="Common\Header.php" />
     <Compile Include="CurrentRegistration.php" />
@@ -34,6 +36,7 @@
   <ItemGroup>
     <Folder Include="Common\" />
     <Folder Include="Common\Classes\" />
+    <Folder Include="Common\Classes\Models\" />
     <Folder Include="Contents\" />
     <Folder Include="Contents\AlgCss\" />
     <Folder Include="Contents\css\" />
