@@ -1,3 +1,9 @@
+<?php
+// Start the Session in the Header since the header is included in all the pages
+session_start(); 
+?>
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

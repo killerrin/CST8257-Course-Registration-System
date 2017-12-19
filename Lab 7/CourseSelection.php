@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php //session_start(); ?>
 <?php include "Common/Header.php"; ?>
 
 <div class="container">
