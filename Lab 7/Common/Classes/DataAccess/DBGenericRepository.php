@@ -1,5 +1,5 @@
 <?php
-class DBRepository
+class DBGenericRepository
 {
     public $dbManager;
     public $tableName;
