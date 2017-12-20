@@ -21,6 +21,9 @@ class DBManager
 
     }
 
+    function getError() { return mysqli_error($this->dbLink); }
+    function getErrorCode() { return mysqli_errno($this->dbLink); }
+
     function isConnected() {
         return isset($this->dbLink);
     }
@@ -49,21 +52,24 @@ class DBManager
     }
 
     function queryCustom($query) {
+        //echo $query;
         $result = mysqli_query($this->dbLink, $query);
         return $result;
     }
     function queryAll($tableName) {
-        $selectStatement = "SELECT * FROM $tableName";
-        //echo $selectStatement;
-        $result = mysqli_query($this->dbLink, $selectStatement);
+        $query = "SELECT * FROM $tableName";
+        //echo $query;
+        $result = mysqli_query($this->dbLink, $query);
         return $result;
     }
-    function queryByID($tableName, $filterName, $filterValue) {
-        $selectStatement = "SELECT *
-                            FROM $tableName
-                            WHERE $filterName = '$filterValue'";
-        //echo $selectStatement;
-        $result = mysqli_query($this->dbLink, $selectStatement);
+    function queryByFilter($tableName, $filterName, $filterValue) {
+        $query = "SELECT *
+                  FROM $tableName
+                  WHERE $filterName = '$filterValue'";
+        //echo $query;
+        $result = mysqli_query($this->dbLink, $query);
         return $result;
     }
+
+
 }

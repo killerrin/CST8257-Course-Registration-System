@@ -17,8 +17,14 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Common\Classes\DBManager.php" />
-    <Compile Include="Common\Classes\DBRepository.php" />
+    <Compile Include="Common\Classes\DataAccess\Repositories\DBRegistrationRepository.php" />
+    <Compile Include="Common\Classes\DataAccess\Repositories\DBCourseOfferRepository.php" />
+    <Compile Include="Common\Classes\DataAccess\DBManager.php" />
+    <Compile Include="Common\Classes\DataAccess\Repositories\DBCourseRepository.php" />
+    <Compile Include="Common\Classes\DataAccess\Repositories\DBStudentRepository.php" />
+    <Compile Include="Common\Classes\DataAccess\Repositories\DBSemesterRepository.php" />
+    <Compile Include="Common\Classes\DataAccess\DBGenericRepository.php" />
+    <Compile Include="Common\IncludeAll.php" />
     <Compile Include="Common\Classes\Models\Registration.php" />
     <Compile Include="Common\Classes\Models\CourseOffer.php" />
     <Compile Include="Common\Classes\Models\Semester.php" />
@@ -36,7 +42,9 @@
   <ItemGroup>
     <Folder Include="Common\" />
     <Folder Include="Common\Classes\" />
+    <Folder Include="Common\Classes\DataAccess\Repositories\" />
     <Folder Include="Common\Classes\Models\" />
+    <Folder Include="Common\Classes\DataAccess\" />
     <Folder Include="Contents\" />
     <Folder Include="Contents\AlgCss\" />
     <Folder Include="Contents\css\" />
