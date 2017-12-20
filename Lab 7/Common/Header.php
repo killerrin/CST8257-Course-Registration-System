@@ -1,8 +1,4 @@
-<?php
-include_once("IncludeAll.php");
-?>
-
-
+<?php include_once("IncludeAll.php"); ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
