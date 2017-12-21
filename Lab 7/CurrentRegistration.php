@@ -23,8 +23,7 @@ $LoggedInUser = isset($_SESSION["LoggedInUser"]) ? $_SESSION["LoggedInUser"] : (
       }
       $dbManager->close();
 
-      var_dump($courseRegistrations);
-
+      //var_dump($courseRegistrations);
       if ($_POST) {
 
       }
