@@ -25,11 +25,15 @@ foreach($courseOfferRepo->getAll() as $courseOffer) {
     $tmp = new CourseOffer($course, $semester);
     if (!isset($semesters[$tmp->semester->semesterCode]))
         $semesters[$tmp->semester->semesterCode] = array();
+    $push = true;
     foreach ($registrations as $registration) {
-        if ($tmp->course->courseCode == $registration->course->courseCode)
+        if ($tmp->course->courseCode == $registration[1]) {
+            $push = false;
             continue;
+        }
     }
-    array_push($semesters[$tmp->semester->semesterCode], $tmp->course);
+    if ($push)
+        array_push($semesters[$tmp->semester->semesterCode], $tmp->course);
 }
 //var_dump($semesters);
 $dbManager->close();
