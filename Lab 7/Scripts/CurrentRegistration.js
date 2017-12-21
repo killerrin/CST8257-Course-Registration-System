@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    $(".buttonsContainer input[type=button]").click(function () {
-        confirm("The selected registrations will be deleted!");
-    });
+    //$(".buttonsContainer input[type=submit]").click(function () {
+    //    confirm("The selected registrations will be deleted!");
+    //});
 });
