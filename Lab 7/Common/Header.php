@@ -6,6 +6,17 @@
     <link rel="stylesheet" href="Contents/css/bootstrap.min.css" />
     <link rel="stylesheet" href="Contents/AlgCss/Site.css" />
     <link href="Contents/css/style.css" rel="stylesheet" />
+    <script type="text/javascript">
+        function confirmDeletion() {
+            var result = confirm("The selected registrations will be deleted!");
+            if (result == true) {
+                // OK
+            } else {
+                // Cancel
+                return false;
+            }
+        };
+    </script>
 </head>
 <body>
 
