@@ -16,12 +16,16 @@ $totalHours = (function($LoggedInUser) {
 $remainingHours = 16 - $totalHours;
 
 $semesters = array();
+$terms = array();
 
 $dbManager = new DBManager();
 $dbManager->connect();
 $courseOfferRepo = new DBCourseOfferRepository($dbManager);
 $courseRepo = new DBCourseRepository($dbManager);
 $semesterRepo = new DBSemesterRepository($dbManager);
+
+$terms = $semesterRepo->getAll();
+
 foreach($courseOfferRepo->getAll() as $courseOffer) {
     $course = $courseRepo->getID($courseOffer[0])[0];
     $semester = $semesterRepo->getID($courseOffer[1])[0];
@@ -30,7 +34,7 @@ foreach($courseOfferRepo->getAll() as $courseOffer) {
         $semesters[$tmp->semester->semesterCode] = array();
     array_push($semesters[$tmp->semester->semesterCode], $tmp->course);
 }
-var_dump($semesters);
+//var_dump($semesters);
 $dbManager->close();
 
 ?>
@@ -41,11 +45,31 @@ $dbManager->close();
     <p>You have registered <strong><?php echo $totalHours; ?></strong> hours for the selected semester.</p>
     <p>You can register <strong><?php echo $remainingHours; ?></strong> more hours of course(s) for the semester.</p>
     <p>Please note that the courses you have registered will not be displayed in the list.</p>
-    <select id="semesterSelect" class="form-control">
-        <?php foreach($semesters as $semester): ?>
+    <div class="col-xs-3 col-xs-offset-9">
+        <select id="semesterSelect" class="form-control">
+            <?php foreach($terms as $term): ?>
+                <option value="<?php echo $term->semesterCode; ?>"><?php echo $term->year." ".$term->term; ?></option>
+            <?php endforeach; ?>
+        </select>
+        <br />
+    </div>
+    <div>
+        <form action="CourseSelection.php" method="post">
+            <table class="table">
+                <thead>
+                <row>
+                    <th>Code</th>
+                    <th>Course Title</th>
+                    <th>Hours</th>
+                    <th>Select</th>
+                </row>
+                </thead>
+                <tbody id="tbody">
 
-        <?php endforeach; ?>
-    </select>
+                </tbody>
+            </table>
+        </form>
+    </div>
 </div>
-
+<script type="application/javascript" href="./Scripts/CourseSelection.js"></script>
 <?php include "Common/Footer.php"; ?>
