@@ -12,7 +12,5 @@ class DBGenericRepository
     function getAll() {
         return $this->dbManager->queryAll($this->tableName);
     }
-
-
 }
 ?>

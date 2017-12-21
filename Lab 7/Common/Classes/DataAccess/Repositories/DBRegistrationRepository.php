@@ -5,8 +5,20 @@ class DBRegistrationRepository extends DBGenericRepository
         parent::__construct($dbManager, "Registration");
     }
 
+    private function parseQuery($result) {
+        $arrayResult = array();
+        while ($row = mysqli_fetch_row($result))
+        {
+        	array_push($arrayResult, $this->rowToObject($row[0]));
+        	array_push($arrayResult, $this->rowToObject($row[1]));
+        	array_push($arrayResult, $this->rowToObject($row[2]));
+        }
+        return $arrayResult;
+    }
+
     function getAll() {
-        return $this->dbManager->queryAll($this->tableName);
+        $result = $this->dbManager->queryAll($this->tableName);
+        return $this->parseQuery($result);
     }
 
     function getID($studentID, $courseCode, $semesterCode) {
@@ -15,9 +27,11 @@ class DBRegistrationRepository extends DBGenericRepository
                     StudentId = '$studentID' AND
                     CourseCode = '$courseCode' AND
                     SemesterCode = '$semesterCode'";
-        return $this->dbManager->queryCustom($query);
+        $result = $this->dbManager->queryCustom($query);
+        return $this->parseQuery($result);
     }
 
+    // Return True of Success, False if failed
     function insert(Registration $item) {
         $query = "INSERT INTO $this->tableName
                   (StudentId, CourseCode, SemesterCode)
@@ -25,6 +39,7 @@ class DBRegistrationRepository extends DBGenericRepository
         return $this->dbManager->queryCustom($query);
     }
 
+    // Return True of Success, False if failed
     function delete(Registration $item) {
         $query = "DELETE FROM $this->tableName
                   WHERE

@@ -5,8 +5,19 @@ class DBCourseOfferRepository extends DBGenericRepository
         parent::__construct($dbManager, "CourseOffer");
     }
 
+    private function parseQuery($result) {
+        $arrayResult = array();
+        while ($row = mysqli_fetch_row($result))
+        {
+        	array_push($arrayResult, $this->rowToObject($row[0]));
+        	array_push($arrayResult, $this->rowToObject($row[1]));
+        }
+        return $arrayResult;
+    }
+
     function getAll() {
-        return $this->dbManager->queryAll($this->tableName);
+        $result = $this->dbManager->queryAll($this->tableName);
+        return $this->parseQuery($result);
     }
 
     function getID($courseCode, $semesterCode) {
@@ -14,9 +25,11 @@ class DBCourseOfferRepository extends DBGenericRepository
                   WHERE
                     CourseCode = '$courseCode' AND
                     SemesterCode = '$semesterCode'";
-        return $this->dbManager->queryCustom($query);
+        $result = $this->dbManager->queryCustom($query);
+        return $this->parseQuery($result);
     }
 
+    // Return True of Success, False if failed
     function insert(CourseOffer $item) {
         $query = "INSERT INTO $this->tableName
                   (CourseCode, SemesterCode)
@@ -24,6 +37,7 @@ class DBCourseOfferRepository extends DBGenericRepository
         return $this->dbManager->queryCustom($query);
     }
 
+    // Return True of Success, False if failed
     function delete(CourseOffer $item) {
         $query = "DELETE FROM $this->tableName
                   WHERE
