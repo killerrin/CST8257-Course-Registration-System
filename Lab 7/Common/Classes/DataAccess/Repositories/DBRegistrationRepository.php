@@ -10,9 +10,9 @@ class DBRegistrationRepository extends DBGenericRepository
         while ($row = mysqli_fetch_row($result))
         {
             $tmpArray = array();
-        	array_push($tmpArray, $this->rowToObject($row[0]));
-        	array_push($tmpArray, $this->rowToObject($row[1]));
-        	array_push($tmpArray, $this->rowToObject($row[2]));
+        	array_push($tmpArray, $this->rowToObject($row[0])); // StudentId
+        	array_push($tmpArray, $this->rowToObject($row[1])); // CourseCode
+        	array_push($tmpArray, $this->rowToObject($row[2])); // SemesterCode
 
             array_push($arrayResult, $tmpArray);
         }
