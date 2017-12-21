@@ -8,6 +8,7 @@
     Other
 */
 
+/* CurrentRegistration.php Styles */
 h1 {
     text-align: center;
 }
@@ -33,6 +34,7 @@ tr {
     text-align: right;
 }
 
+/* NewUser.php Styles */
 .form-horizontal .control-label {
     text-align: left;
 }
