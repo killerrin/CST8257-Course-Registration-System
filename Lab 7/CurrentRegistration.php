@@ -36,7 +36,7 @@ $LoggedInUser = isset($_SESSION["LoggedInUser"]) ? $_SESSION["LoggedInUser"] : (
         <strong>
             <?php echo $LoggedInUser->name; ?>!
         </strong>(not you? change user
-        <a href="Login.php">here</a>), the followings are your current registrations
+        <a href="Logout.php">here</a>), the followings are your current registrations
     </p>
     <form action="/CurrentRegistration.php" method="post" onsubmit="return confirmDeletion();">
         <table>
