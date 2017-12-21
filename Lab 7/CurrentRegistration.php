@@ -7,16 +7,23 @@ $courseRepo = new DBCourseRepository($dbManager);
 $semesterRepo = new DBSemesterRepository($dbManager);
 $registration = new DBRegistrationRepository($dbManager);
 $dbManager->connect();
-$allUserRegistrations = $registration->getForUser($LoggedInUser->studentID);
-$dbManager->close();
 
+$allUserRegistrations = $registration->getForUser($LoggedInUser->studentID);
 $courseRegistrations = array();
 foreach ($allUserRegistrations as $value)
 {
     $course = $courseRepo->getID($value[1]);
     $semester = $semesterRepo->getID($value[2]);
     $registration = new Registration($LoggedInUser, $course, $semester);
+
+    // Create the Multi-array
+    if (!isset($courseRegistrations[$registration->semester->semesterCode]))
+        $courseRegistrations[$registration->semester->semesterCode] = array();
+    array_push($courseRegistrations[$registration->semester->semesterCode], $registration);
 }
+$dbManager->close();
+
+var_dump($courseRegistrations);
 
 if ($_POST) {
 
