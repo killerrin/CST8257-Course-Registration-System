@@ -25,7 +25,7 @@
                     <li><a href="CourseSelection.php">Course Selection</a></li>
                     <li><a href="CurrentRegistration.php">Current Registration</a></li>
 
-                    <?php if (true) : ?>
+                    <?php if (empty($_SESSION["LoggedInUser"])) : ?>
                     <li><a href="Login.php">Login</a></li>
                     <?php else : ?>
                     <li><a href="Logout.php">Logout</a></li>
