@@ -71,5 +71,5 @@ $dbManager->close();
         </form>
     </div>
 </div>
-<script type="application/javascript" href="./Scripts/CourseSelection.js"></script>
+<script src="./Scripts/CourseSelection.js"></script>
 <?php include "Common/Footer.php"; ?>
