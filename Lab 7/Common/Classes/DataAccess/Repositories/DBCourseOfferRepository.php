@@ -32,9 +32,18 @@ class DBCourseOfferRepository extends DBGenericRepository
         return $this->parseQuery($result);
     }
 
+    function getByCourse($courseCode) {
+        $query = "SELECT * FROM $this->tableName
+                  WHERE
+                    CourseCode = '$courseCode'";
+        $result = $this->dbManager->queryCustom($query);
+        return $this->parseQuery($result);
+    }
+
     function getBySemester($semesterCode) {
         $query = "SELECT * FROM $this->tableName
-                  WHERE SemesterCode = '$semesterCode'";
+                  WHERE 
+                    SemesterCode = '$semesterCode'";
         $result = $this->dbManager->queryCustom($query);
         return $this->parseQuery($result);
     }
