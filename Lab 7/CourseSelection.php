@@ -84,7 +84,9 @@ $dbManager->close();
                     <th>Select</th>
                 </row>
                 </thead>
-                <tbody id="tbody"></tbody>
+                <tbody id="tbody">
+                <td colspan="4" align="center">Loading... Please wait</td>
+                </tbody>
             </table>
             <div class="form-group col-xs-4 col-xs-offset-8">
                 <div class="col-xs-6">
