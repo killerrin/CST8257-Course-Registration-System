@@ -8,7 +8,7 @@ $LoggedInUser = isset($_SESSION["LoggedInUser"]) ? $_SESSION["LoggedInUser"] : (
       $registration = new DBRegistrationRepository($dbManager);
       $dbManager->connect();
 
-      $allUserRegistrations = $registration->getForUser($LoggedInUser->studentID);
+      $allUserRegistrations = $registration->getForUserOrdered($LoggedInUser->studentID, "SemesterCode", "ASC");
       $courseRegistrations = array();
       foreach ($allUserRegistrations as $value)
       {
