@@ -21,7 +21,6 @@ if ($_POST) {
     $uppercase = preg_match('@[A-Z]@', $password);
     $lowercase = preg_match('@[a-z]@', $password);
     $number    = preg_match('@[0-9]@', $password);
-
     if(!$uppercase || !$lowercase || !$number || strlen($password) < 6) {
         $passwordError = "Password must be atleast 6 characters long and contain 1 Uppercase, 1 Lowercase and 1 Digit";
     }
