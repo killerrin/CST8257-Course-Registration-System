@@ -147,6 +147,4 @@ if ($_POST) {
 </div>
 
 <script src="Scripts/CurrentRegistration.js"></script>
-
-
 <?php include "Common/Footer.php"; ?>
