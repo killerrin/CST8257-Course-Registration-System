@@ -42,6 +42,15 @@ class DBRegistrationRepository extends DBGenericRepository
         return $this->parseQuery($result);
     }
 
+    function getForUserOrdered($studentID, $orderValue, $orderCode) {
+        $query = "SELECT * FROM $this->tableName
+                  WHERE
+                    StudentId = '$studentID'
+                  ORDER BY $orderValue $orderCode";
+        $result = $this->dbManager->queryCustom($query);
+        return $this->parseQuery($result);
+    }
+
     function getByCourse($courseCode) {
         $query = "SELECT * FROM $this->tableName
                   WHERE
