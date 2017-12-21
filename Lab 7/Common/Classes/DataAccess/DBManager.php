@@ -17,7 +17,8 @@ class DBManager
         $this->username = 'PHPSCRIPT';
         $this->password = '1234';
         $this->dbName = 'cst8257';
-        $this->port = 3306;
+        $this->port = 3306; // Default
+        //$this->port = 3307; // Custom Port
     }
 
     function getError() { return mysqli_error($this->dbLink); }
