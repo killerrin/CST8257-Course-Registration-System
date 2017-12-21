@@ -9,10 +9,10 @@ $LoggedInUser = isset($_SESSION["LoggedInUser"]) ? $_SESSION["LoggedInUser"] : (
 $selectCourseError = false;
 $totalHoursError = false;
 
-function calculateHours($LoggedInUser) {
+function calculateHours($LoggedInUser, $semester) {
     $dbManager = new DBManager();
     $dbManager->connect();
-    $hoursQueryResult = $dbManager->queryCustom("SELECT SUM(WeeklyHours) FROM Course JOIN (Registration, Student) ON ( Course.CourseCode = Registration.CourseCode AND Registration.StudentId = Student.StudentId ) WHERE Student.StudentId = '$LoggedInUser->studentID' GROUP BY Student.StudentId ;");
+    $hoursQueryResult = $dbManager->queryCustom("SELECT SUM(WeeklyHours) FROM Course JOIN (Registration, Student) ON ( Course.CourseCode = Registration.CourseCode AND Registration.StudentId = Student.StudentId ) WHERE Student.StudentId = '$LoggedInUser->studentID' AND Registration.SemesterCode = '$semester' GROUP BY Student.StudentId ;");
     //var_dump($hoursQueryResult);
     $hours = mysqli_fetch_row($hoursQueryResult);
     return empty($hours) ? 0 : (int)$hours[0];
@@ -38,7 +38,7 @@ if (!empty($_POST['course'])) {
         $addHours += (int)$courseRepo->getID($course)[0]->weeklyHours;
     }
 
-    if ($addHours + calculateHours($LoggedInUser) > 16)
+    if ($addHours + calculateHours($LoggedInUser, $_POST['semester']) > 16)
         $totalHoursError = true;
 
     if (!$totalHoursError && !$selectCourseError) {
