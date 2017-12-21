@@ -22,8 +22,15 @@ if ($_POST) {
             $loginError = false;
             $_SESSION["LoggedInUser"] = $value;
 
-            // Redirect to Course Selection Page
-            header("Location: CourseSelection.php");
+            // Redirect to the proper page
+            $returnUrl = $_GET["returnUrl"];
+            if (empty($returnUrl)) {
+                // Not specified defaults to Course Selection Page
+                header("Location: CourseSelection.php");
+            }
+            else {
+                header("Location: $returnUrl");
+            }
             die();
         }
     }
