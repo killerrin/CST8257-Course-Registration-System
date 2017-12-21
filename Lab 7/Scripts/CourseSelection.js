@@ -1,10 +1,13 @@
+;
+console.log("Adding event listener!");
 $("body").on("change", "#semesterSelect", makeAJAXCall($("#semesterSelect").val()));
-console.log("Added event listener!");
 
 function makeAJAXCall(semesterCode) {
-    console.log("Fetching courses...")
+    console.log("Fetching courses...");
     $.ajax("CourseSelectionAJAX.php?semesterCode=" + encodeURIComponent(semesterCode) + "&studentID=" + encodeURIComponent($("#studentID").val()), {
         success: function(data) {
+            clearTable();
+            console.log("Populating table with response");
             Array.from(data).forEach(function(course) {
                 var row = $("<tr/>");
                 for (att in course) {
@@ -14,9 +17,11 @@ function makeAJAXCall(semesterCode) {
                 }
                 row.append("<input type='checkbox' name='course[]' value='" + course.courseCode + "' />");
                 $("#tbody").append(row);
-            })
+            });
         },
         error: function() {
+            clearTable();
+            console.log("Error fetching courses");
             var row = $("<row/>");
             var field = $("<td/>");
             field.append("There was an error fetching courses!");
@@ -24,5 +29,10 @@ function makeAJAXCall(semesterCode) {
             row.append(field);
             $("#tbody").append(row);
         }
-    })
+    });
+}
+
+function clearTable() {
+    console.log("Clearing table...");
+    $("#tbody tr").remove();
 }
