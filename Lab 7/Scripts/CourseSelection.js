@@ -22,7 +22,7 @@ function makeAJAXCall(semesterCode) {
         error: function() {
             clearTable();
             console.log("Error fetching courses");
-            var row = $("<row/>");
+            var row = $("<tr/>");
             var field = $("<td/>");
             field.append("There was an error fetching courses!");
             field.attr("colspan", 4);
