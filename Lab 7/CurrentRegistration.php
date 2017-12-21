@@ -5,7 +5,7 @@ $LoggedInUser = isset($_SESSION["LoggedInUser"]) ? $_SESSION["LoggedInUser"] : (
       $dbManager = new DBManager();
       $courseRepo = new DBCourseRepository($dbManager);
       $semesterRepo = new DBSemesterRepository($dbManager);
-      $registration = new DBRegistrationRepository($dbManager);
+      $registrationRepo = new DBRegistrationRepository($dbManager);
       $dbManager->connect();
 
       // Delete if courses selected on post
@@ -16,12 +16,13 @@ $LoggedInUser = isset($_SESSION["LoggedInUser"]) ? $_SESSION["LoggedInUser"] : (
           foreach ($selectedCoursesToDelete as $codesCombined)
           {
               $codesArr = explode("|", $codesCombined);
-              $registration->deleteByID($LoggedInUser->studentID, $codesArr[0], $codesArr[1]);
+              //echo "<p>$LoggedInUser->studentID $codesArr[0] $codesArr[1]</p>";
+              $registrationRepo->deleteByID($LoggedInUser->studentID, $codesArr[0], $codesArr[1]);
           }
       }
 
       // Get all courses ordered
-      $allUserRegistrations = $registration->getForUserOrdered($LoggedInUser->studentID, "SemesterCode", "ASC");
+      $allUserRegistrations = $registrationRepo->getForUserOrdered($LoggedInUser->studentID, "SemesterCode", "ASC");
       $courseRegistrations = array();
       foreach ($allUserRegistrations as $value)
       {
