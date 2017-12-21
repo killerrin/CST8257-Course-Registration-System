@@ -51,6 +51,7 @@ $dbManager->close();
                 <option value="<?php echo $term->semesterCode; ?>"><?php echo $term->year." ".$term->term; ?></option>
             <?php endforeach; ?>
         </select>
+        <input type="hidden" id="studentID" value="<?php echo $LoggedInUser->studentID; ?>" />
         <br />
     </div>
     <div>

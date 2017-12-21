@@ -2,8 +2,8 @@ $("body").on("change", "#semesterSelect", makeAJAXCall($("#semesterSelect").val(
 console.log("Added event listener!");
 
 function makeAJAXCall(semesterCode) {
-    console.log("Fetching courses");
-    $.ajax("CourseSelectionAJAX.php?semesterCode=" + encodeURIComponent(semesterCode), {
+    console.log("Fetching courses...")
+    $.ajax("CourseSelectionAJAX.php?semesterCode=" + encodeURIComponent(semesterCode) + "&studentID=" + encodeURIComponent($("#studentID").val()), {
         success: function(data) {
             Array.from(data).forEach(function(course) {
                 var row = $("<tr/>");
