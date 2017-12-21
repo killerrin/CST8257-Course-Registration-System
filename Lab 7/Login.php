@@ -52,13 +52,13 @@ if ($_POST) {
         <?php endif; ?>
         <div class="form-group">
             <label for="inputStudentNumber" class="col-sm-2 control-label">StudentID</label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
                 <input type="text" class="form-control" id="inputStudentNumber" name="inputStudentNumber" placeholder="Student ID" value="<?php echo $studentID; ?>" required />
             </div>
         </div>
         <div class="form-group">
             <label for="inputPassword" class="col-sm-2 control-label">Password</label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
                 <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" value="<?php echo $password; ?>" required />
             </div>
         </div>
