@@ -32,6 +32,7 @@
     <Compile Include="Common\Classes\Models\Student.php" />
     <Compile Include="Common\Footer.php" />
     <Compile Include="Common\Header.php" />
+    <Compile Include="CourseSelectionAJAX.php" />
     <Compile Include="CurrentRegistration.php" />
     <Compile Include="CourseSelection.php" />
     <Compile Include="NewUser.php" />
@@ -73,6 +74,7 @@
     <Content Include="Contents\js\bootstrap.js" />
     <Content Include="Contents\js\bootstrap.min.js" />
     <Content Include="Contents\js\npm.js" />
+    <Content Include="Scripts\CourseSelection.js" />
     <Content Include="Scripts\CurrentRegistration.js" />
     <Content Include="Scripts\jquery-2.2.4.min.js" />
     <Content Include="Scripts\CurrentRegistration.js" />
