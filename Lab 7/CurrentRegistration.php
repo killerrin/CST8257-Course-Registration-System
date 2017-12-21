@@ -7,13 +7,19 @@ $courseRepo = new DBCourseRepository($dbManager);
 $semesterRepo = new DBSemesterRepository($dbManager);
 $registration = new DBRegistrationRepository($dbManager);
 $dbManager->connect();
-$allCourses = $courseRepo->getAll();
-$allSemesters = $semesterRepo->getAll();
 $allUserRegistrations = $registration->getForUser($LoggedInUser->studentID);
 $dbManager->close();
 
+$courseRegistrations = array();
+foreach ($allUserRegistrations as $value)
+{
+    $course = $courseRepo->getID($value[1]);
+    $semester = $semesterRepo->getID($value[2]);
+    $registration = new Registration($LoggedInUser, $course, $semester);
+}
+
 if ($_POST) {
-    
+
 }
 ?>
 
