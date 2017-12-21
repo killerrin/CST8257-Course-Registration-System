@@ -9,7 +9,7 @@ function makeAJAXCall(semesterCode) {
         success: function(data) {
             clearTable();
             console.log("Populating table with response");
-            Array.from(data).forEach(function(course) {
+            Array.from(data[0]).forEach(function(course) {
                 var row = $("<tr/>");
                 for (att in course) {
                     var field = $("<td/>");
@@ -19,6 +19,8 @@ function makeAJAXCall(semesterCode) {
                 row.append("<input type='checkbox' name='course[]' value='" + course.courseCode + "' />");
                 $("#tbody").append(row);
             });
+            $("#weeklyHours").append(data[1]);
+            $("#remainingHours").append(16 -data[1]);
         },
         error: function() {
             clearTable();

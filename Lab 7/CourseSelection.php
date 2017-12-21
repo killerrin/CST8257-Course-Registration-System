@@ -53,12 +53,6 @@ if (!empty($_POST['course'])) {
     $dbManager->close();
 }
 
-// Calculate total course hours (and remaining) for current user
-
-$totalHours = calculateHours($LoggedInUser);
-
-$remainingHours = 16 - $totalHours;
-
 
 // Get all terms for dropdown list
 
@@ -78,8 +72,8 @@ $dbManager->close();
 <div class="container">
     <h1>Course Selection</h1>
     <p>Welcome <strong><?php echo $LoggedInUser->name; ?>!</strong> (not you? change user <a href="Logout.php">here</a>)</p>
-    <p>You have registered <strong><?php echo $totalHours; ?></strong> hours for the selected semester.</p>
-    <p>You can register <strong><?php echo $remainingHours; ?></strong> more hours of course(s) for the semester.</p>
+    <p>You have registered <strong id="weeklyHours"></strong> hours for the selected semester.</p>
+    <p>You can register <strong id="remainingHours"></strong> more hours of course(s) for the semester.</p>
     <p>Please note that the courses you have registered will not be displayed in the list.</p>
 
     <form action="CourseSelection.php" method="post">
