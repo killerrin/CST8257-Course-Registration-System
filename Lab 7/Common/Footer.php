@@ -6,7 +6,6 @@
     </div>
 </footer>
 
-<script src="Contents/js/bootstrap.min.js"></script>
 <script src="Scripts/Site.js"></script>
 </body>
 </html>

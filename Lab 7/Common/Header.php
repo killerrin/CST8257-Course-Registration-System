@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="Contents/AlgCss/Site.css" />
     <link href="Contents/css/style.css" rel="stylesheet" />
     <script src="Scripts/jquery-2.2.4.min.js"></script>
+    <script src="Contents/js/bootstrap.min.js"></script>
 </head>
 <body>
 
