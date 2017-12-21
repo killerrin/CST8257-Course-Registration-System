@@ -43,6 +43,8 @@ if ($_POST) {
     $dbManager->close();
 
     if ($dbInsertResult) {
+        $_SESSION["LoggedInUser"] = $student;
+
         header("Location: CourseSelection.php");
         die();
     }

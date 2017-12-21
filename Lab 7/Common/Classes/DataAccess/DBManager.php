@@ -18,7 +18,6 @@ class DBManager
         $this->password = '1234';
         $this->dbName = 'cst8257';
         $this->port = 3306;
-
     }
 
     function getError() { return mysqli_error($this->dbLink); }
