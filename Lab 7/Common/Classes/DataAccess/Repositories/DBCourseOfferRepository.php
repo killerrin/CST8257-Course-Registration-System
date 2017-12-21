@@ -9,8 +9,11 @@ class DBCourseOfferRepository extends DBGenericRepository
         $arrayResult = array();
         while ($row = mysqli_fetch_row($result))
         {
-        	array_push($arrayResult, $this->rowToObject($row[0]));
-        	array_push($arrayResult, $this->rowToObject($row[1]));
+            $tmpArray = array();
+        	array_push($tmpArray, $this->rowToObject($row[0]));
+        	array_push($tmpArray, $this->rowToObject($row[1]));
+
+            array_push($arrayResult, $tmpArray);
         }
         return $arrayResult;
     }
