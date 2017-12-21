@@ -32,6 +32,13 @@ class DBCourseOfferRepository extends DBGenericRepository
         return $this->parseQuery($result);
     }
 
+    function getBySemester($semesterCode) {
+        $query = "SELECT * FROM $this->tableName
+                  WHERE SemesterCode = '$semesterCode'";
+        $result = $this->dbManager->queryCustom($query);
+        return $this->parseQuery($result);
+    }
+
     // Return True of Success, False if failed
     function insert(CourseOffer $item) {
         $query = "INSERT INTO $this->tableName
