@@ -42,7 +42,7 @@ class DBCourseOfferRepository extends DBGenericRepository
 
     function getBySemester($semesterCode) {
         $query = "SELECT * FROM $this->tableName
-                  WHERE 
+                  WHERE
                     SemesterCode = '$semesterCode'";
         $result = $this->dbManager->queryCustom($query);
         return $this->parseQuery($result);
@@ -50,18 +50,22 @@ class DBCourseOfferRepository extends DBGenericRepository
 
     // Return True of Success, False if failed
     function insert(CourseOffer $item) {
+        $courseCode = $item->course->courseCode;
+        $semesterCode = $item->semester->semesterCode;
         $query = "INSERT INTO $this->tableName
                   (CourseCode, SemesterCode)
-                  VALUES('$item->course->courseCode', '$item->semester->semesterCode')";
+                  VALUES('$courseCode', '$semesterCode')";
         return $this->dbManager->queryCustom($query);
     }
 
     // Return True of Success, False if failed
     function delete(CourseOffer $item) {
+        $courseCode = $item->course->courseCode;
+        $semesterCode = $item->semester->semesterCode;
         $query = "DELETE FROM $this->tableName
                   WHERE
-                    CourseCode = '$item->course->courseCode' AND
-                    SemesterCode = '$item->semester->semesterCode'";
+                    CourseCode = '$courseCode' AND
+                    SemesterCode = '$semesterCode'";
         return $this->dbManager->queryCustom($query);
     }
 }
