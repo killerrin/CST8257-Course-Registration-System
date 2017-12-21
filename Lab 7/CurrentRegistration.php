@@ -11,13 +11,13 @@ $LoggedInUser = isset($_SESSION["LoggedInUser"]) ? $_SESSION["LoggedInUser"] : (
       // Delete if courses selected on post
       if ($_POST) {
           $selectedCoursesToDelete = $_POST["courseSelected"];
-          var_dump($selectedCoursesToDelete);
+          //var_dump($selectedCoursesToDelete);
 
           foreach ($selectedCoursesToDelete as $codesCombined)
           {
               $codesArr = explode("|", $codesCombined);
               //echo "<p>$LoggedInUser->studentID $codesArr[0] $codesArr[1]</p>";
-              $registrationRepo->deleteByID($LoggedInUser->studentID, $codesArr[0], $codesArr[1]);
+              $registrationRepo->deleteByID($LoggedInUser->studentID, $codesArr[1], $codesArr[0]);
           }
       }
 
