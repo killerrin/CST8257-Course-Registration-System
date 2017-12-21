@@ -8,6 +8,19 @@ $LoggedInUser = isset($_SESSION["LoggedInUser"]) ? $_SESSION["LoggedInUser"] : (
       $registration = new DBRegistrationRepository($dbManager);
       $dbManager->connect();
 
+      // Delete if courses selected on post
+      if ($_POST) {
+          $selectedCoursesToDelete = $_POST["courseSelected"];
+          var_dump($selectedCoursesToDelete);
+
+          foreach ($selectedCoursesToDelete as $codesCombined)
+          {
+              $codesArr = explode("|", $codesCombined);
+              $registration->deleteByID($LoggedInUser->studentID, $codesArr[0], $codesArr[1]);
+          }
+      }
+
+      // Get all courses ordered
       $allUserRegistrations = $registration->getForUserOrdered($LoggedInUser->studentID, "SemesterCode", "ASC");
       $courseRegistrations = array();
       foreach ($allUserRegistrations as $value)
@@ -22,11 +35,7 @@ $LoggedInUser = isset($_SESSION["LoggedInUser"]) ? $_SESSION["LoggedInUser"] : (
           array_push($courseRegistrations[$registration->semester->semesterCode], $registration);
       }
       $dbManager->close();
-
       //var_dump($courseRegistrations);
-      if ($_POST) {
-
-      }
 ?>
 
 <div class="container">
@@ -67,7 +76,7 @@ $LoggedInUser = isset($_SESSION["LoggedInUser"]) ? $_SESSION["LoggedInUser"] : (
                     echo "<td>$course->courseCode</td>";
                     echo "<td>$course->title</td>";
                     echo "<td>$course->weeklyHours</td>";
-                    echo "<td><input type=\"checkbox\" name=\"courseSelected[]\" /></td>";
+                    echo "<td><input type=\"checkbox\" name=\"courseSelected[]\" value=\"$semester->semesterCode|$course->courseCode\" /></td>";
                     echo "</tr>";
                 }
 

@@ -90,5 +90,14 @@ class DBRegistrationRepository extends DBGenericRepository
                     SemesterCode = '$semesterCode'";
         return $this->dbManager->queryCustom($query);
     }
+
+    function deleteByID($studentID, $courseCode, $semesterCode) {
+        $query = "DELETE FROM $this->tableName
+                  WHERE
+                    StudentId = '$studentID' AND
+                    CourseCode = '$courseCode' AND
+                    SemesterCode = '$semesterCode'";
+        return $this->dbManager->queryCustom($query);
+    }
 }
 ?>
