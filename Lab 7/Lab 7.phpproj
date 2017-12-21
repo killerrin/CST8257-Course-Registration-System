@@ -73,6 +73,7 @@
     <Content Include="Contents\js\bootstrap.js" />
     <Content Include="Contents\js\bootstrap.min.js" />
     <Content Include="Contents\js\npm.js" />
+    <Content Include="Scripts\CurrentRegistration.js" />
     <Content Include="Scripts\jquery-2.2.4.min.js" />
     <Content Include="Scripts\Site.js" />
   </ItemGroup>
