@@ -34,6 +34,14 @@ class DBRegistrationRepository extends DBGenericRepository
         return $this->parseQuery($result);
     }
 
+    function getForUser($studentID) {
+        $query = "SELECT * FROM $this->tableName
+                  WHERE
+                    StudentId = '$studentID'";
+        $result = $this->dbManager->queryCustom($query);
+        return $this->parseQuery($result);
+    }
+
     // Return True of Success, False if failed
     function insert(Registration $item) {
         $query = "INSERT INTO $this->tableName
