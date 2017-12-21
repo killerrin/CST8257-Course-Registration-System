@@ -64,7 +64,7 @@ $dbManager->close();
             </tr>
             <tr>
                 <td colspan="3"></td>
-                <td>Total Weekly Hours</td>
+                <td class="totalWkFormat">Total Weekly Hours</td>
                 <td colspan="2">14</td>
             </tr>
             <tr>
@@ -77,7 +77,7 @@ $dbManager->close();
             </tr>
             <tr>
                 <td colspan="3"></td>
-                <td>Total Weekly Hours</td>
+                <td class="totalWkFormat">Total Weekly Hours</td>
                 <td colspan="2">5</td>
             </tr>
             <tr>
@@ -104,9 +104,16 @@ $dbManager->close();
                 <td>3</td>
                 <td><input type="checkbox" name="courseSelected[]" /></td>
             </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td class="totalWkFormat">Total Weekly Hours</td>
+                <td colspan="2">11</td>
+            </tr>
         </table>
-        <input type="button" name="deleteSelected" value="Delete Selected" />
-        <input type="reset" name="clear" value="Clear" />
+        <div class="buttonsContainer">
+            <input type="button" name="deleteSelected" value="Delete Selected" />
+            <input type="reset" name="clear" value="Clear" />
+        </div>
     </form>
 </div>
 
