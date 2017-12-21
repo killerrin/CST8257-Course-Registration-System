@@ -1,6 +1,7 @@
 ;
 console.log("Adding event listener!");
-$("body").on("change", "#semesterSelect", makeAJAXCall($("#semesterSelect").val()));
+$("body").on("change", "#semesterSelect", function() { makeAJAXCall($("#semesterSelect").val()) });
+$(document).ready(function() { makeAJAXCall($("#semesterSelect").val()) });
 
 function makeAJAXCall(semesterCode) {
     console.log("Fetching courses...");
