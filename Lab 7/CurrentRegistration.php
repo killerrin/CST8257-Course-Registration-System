@@ -11,6 +11,10 @@ $allCourses = $courseRepo->getAll();
 $allSemesters = $semesterRepo->getAll();
 $allUserRegistrations = $registration->getForUser($LoggedInUser->studentID);
 $dbManager->close();
+
+if ($_POST) {
+    
+}
 ?>
 
 <div class="container">
