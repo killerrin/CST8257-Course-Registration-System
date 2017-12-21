@@ -14,8 +14,8 @@ class DBManager
         // We'll just hardcode this in. In a real application situation use
         // an external file
         $this->host = 'localhost';
-        $this->username = 'PHPSCRIPT'; // PHPSCRIPT // root
-        $this->password = '1234'; // 1234 // password
+        $this->username = 'PHPSCRIPT';
+        $this->password = '1234';
         $this->dbName = 'cst8257';
         $this->port = 3306;
 
