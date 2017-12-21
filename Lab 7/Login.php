@@ -23,6 +23,8 @@ if ($_POST) {
             $_SESSION["LoggedInUser"] = $value;
 
             // Redirect to the proper page
+            //ob_end_clean( ); // Run this if the Redirect doesn't work
+
             $returnUrl = $_GET["returnUrl"];
             if (empty($returnUrl)) {
                 // Not specified defaults to Course Selection Page
