@@ -60,19 +60,25 @@ class DBRegistrationRepository extends DBGenericRepository
 
     // Return True of Success, False if failed
     function insert(Registration $item) {
+        $studentID = $item->student->studentID;
+        $courseCode = $item->course->courseCode;
+        $semesterCode = $item->semester->semesterCode;
         $query = "INSERT INTO $this->tableName
                   (StudentId, CourseCode, SemesterCode)
-                  VALUES('$item->student->studentID', '$item->course->courseCode', '$item->semester->semesterCode')";
+                  VALUES('$studentID', '$courseCode', '$semesterCode')";
         return $this->dbManager->queryCustom($query);
     }
 
     // Return True of Success, False if failed
     function delete(Registration $item) {
+        $studentID = $item->student->studentID;
+        $courseCode = $item->course->courseCode;
+        $semesterCode = $item->semester->semesterCode;
         $query = "DELETE FROM $this->tableName
                   WHERE
-                    StudentId = '$item->student->studentID' AND
-                    CourseCode = '$item->course->courseCode' AND
-                    SemesterCode = '$item->semester->semesterCode'";
+                    StudentId = '$studentID' AND
+                    CourseCode = '$courseCode' AND
+                    SemesterCode = '$semesterCode'";
         return $this->dbManager->queryCustom($query);
     }
 }
