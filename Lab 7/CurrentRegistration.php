@@ -5,6 +5,8 @@ $LoggedInUser = isset($_SESSION["LoggedInUser"]) ? $_SESSION["LoggedInUser"] : (
 
 <div class="container">
     <h1>Current Registration</h1>
+    <p>Hello <strong><?php echo $LoggedInUser->name; ?>!</strong> (not you? change user <a href="Login.php">here</a>), the followings are your current registrations</p>
+
 </div>
 
 <?php include "Common/Footer.php"; ?>
