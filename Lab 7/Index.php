@@ -5,7 +5,7 @@
     <h1>Welcome to Algonquin College Online Course Registration</h1>
     <p>
         If you have never used this before, you have to
-        <a href="NewUser.php">sign up</a>&nbsp;First
+        <a href="NewUser.php">sign up</a>&nbsp;first.
     </p>
     <p>
         If you have already signed up, you can
