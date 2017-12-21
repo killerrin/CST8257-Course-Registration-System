@@ -1,3 +1,17 @@
-﻿.form-horizontal .control-label {
+﻿/* 
+    Property Order of Importance
+    -------- ----- -- ----------
+    Positioning
+    Display / Box Model
+    Color
+    Text / Font
+    Other
+*/
+
+h1 {
+    text-align: center;
+}
+
+.form-horizontal .control-label {
     text-align: left;
 }
