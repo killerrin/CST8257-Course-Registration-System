@@ -7,20 +7,33 @@ $courseRepo = new DBCourseRepository($dbManager);
 $semesterRepo = new DBSemesterRepository($dbManager);
 $registration = new DBRegistrationRepository($dbManager);
 $dbManager->connect();
-$allCourses = $courseRepo->getAll();
-$allSemesters = $semesterRepo->getAll();
+
 $allUserRegistrations = $registration->getForUser($LoggedInUser->studentID);
+$courseRegistrations = array();
+foreach ($allUserRegistrations as $value)
+{
+    $course = $courseRepo->getID($value[1]);
+    $semester = $semesterRepo->getID($value[2]);
+    $registration = new Registration($LoggedInUser, $course, $semester);
+
+    // Create the Multi-array
+    if (!isset($courseRegistrations[$registration->semester->semesterCode]))
+        $courseRegistrations[$registration->semester->semesterCode] = array();
+    array_push($courseRegistrations[$registration->semester->semesterCode], $registration);
+}
 $dbManager->close();
 
+var_dump($courseRegistrations);
+
 if ($_POST) {
-    
+
 }
 ?>
 
 <div class="container">
     <h1>Current Registration</h1>
     <p>Hello <strong><?php echo $LoggedInUser->name; ?>!</strong> (not you? change user <a href="Login.php">here</a>), the followings are your current registrations</p>
-    <form action="/" method="post">
+    <form action="/CurrentRegistration.php" method="post" onsubmit="return confirmDeletion();">
         <table>
             <tr>
                 <th>Year</th>
@@ -56,7 +69,9 @@ if ($_POST) {
                 <td>ENG8454</td>
                 <td>Geotechnical Materials</td>
                 <td>3</td>
-                <td><input type="checkbox" name="courseSelected[]" /></td>
+                <td>
+                    <input type="checkbox" name="courseSelected[]" />
+                </td>
             </tr>
             <tr>
                 <td>2017</td>
@@ -64,7 +79,9 @@ if ($_POST) {
                 <td>MGT8400</td>
                 <td>Project Adminstration</td>
                 <td>4</td>
-                <td><input type="checkbox" name="courseSelected[]" /></td>
+                <td>
+                    <input type="checkbox" name="courseSelected[]" />
+                </td>
             </tr>
             <tr>
                 <td colspan="3"></td>
@@ -77,7 +94,9 @@ if ($_POST) {
                 <td>CON8102</td>
                 <td>Commercial Building/Estimating</td>
                 <td>5</td>
-                <td><input type="checkbox" name="courseSelected[]" /></td>
+                <td>
+                    <input type="checkbox" name="courseSelected[]" />
+                </td>
             </tr>
             <tr>
                 <td colspan="3"></td>
@@ -90,7 +109,9 @@ if ($_POST) {
                 <td>CST8110</td>
                 <td>Introduction to Computer Programming</td>
                 <td>4</td>
-                <td><input type="checkbox" name="courseSelected[]" /></td>
+                <td>
+                    <input type="checkbox" name="courseSelected[]" />
+                </td>
             </tr>
             <tr>
                 <td>2018</td>
@@ -98,7 +119,9 @@ if ($_POST) {
                 <td>CST8209</td>
                 <td>Web Programming I</td>
                 <td>4</td>
-                <td><input type="checkbox" name="courseSelected[]" /></td>
+                <td>
+                    <input type="checkbox" name="courseSelected[]" />
+                </td>
             </tr>
             <tr>
                 <td>2018</td>
@@ -106,7 +129,9 @@ if ($_POST) {
                 <td>CST8260</td>
                 <td>Database System and Concepts</td>
                 <td>3</td>
-                <td><input type="checkbox" name="courseSelected[]" /></td>
+                <td>
+                    <input type="checkbox" name="courseSelected[]" />
+                </td>
             </tr>
             <tr>
                 <td colspan="3"></td>
@@ -115,10 +140,13 @@ if ($_POST) {
             </tr>
         </table>
         <div class="buttonsContainer">
-            <input type="button" name="deleteSelected" value="Delete Selected" />
+            <input type="submit" name="deleteSelected" value="Delete Selected" />
             <input type="reset" name="clear" value="Clear" />
         </div>
     </form>
 </div>
+
+<script src="Scripts/CurrentRegistration.js"></script>
+
 
 <?php include "Common/Footer.php"; ?>

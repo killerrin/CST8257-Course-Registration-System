@@ -63,7 +63,7 @@
     <Content Include="Contents\css\bootstrap.css.map" />
     <Content Include="Contents\css\bootstrap.min.css" />
     <Content Include="Contents\css\bootstrap.min.css.map" />
-    <Content Include="Contents\css\newUserStyle.css" />
+    <Content Include="Contents\css\style.css" />
     <Content Include="Contents\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Contents\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Contents\fonts\glyphicons-halflings-regular.ttf" />
@@ -73,7 +73,9 @@
     <Content Include="Contents\js\bootstrap.js" />
     <Content Include="Contents\js\bootstrap.min.js" />
     <Content Include="Contents\js\npm.js" />
+    <Content Include="Scripts\CurrentRegistration.js" />
     <Content Include="Scripts\jquery-2.2.4.min.js" />
+    <Content Include="Scripts\CurrentRegistration.js" />
     <Content Include="Scripts\Site.js" />
   </ItemGroup>
 </Project>
