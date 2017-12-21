@@ -5,6 +5,7 @@
     <title>Online Course Registration System</title>
     <link rel="stylesheet" href="Contents/css/bootstrap.min.css" />
     <link rel="stylesheet" href="Contents/AlgCss/Site.css" />
+    <link href="Contents/css/newUserStyle.css" rel="stylesheet" />
 </head>
 <body>
 
