@@ -44,6 +44,8 @@ if ($_POST) {
         <a href="NewUser.php">sign up</a>&nbsp;if you are a new user
     </p>
 
+    <hr />
+
     <form class="form-horizontal" action="Login.php" method="post">
         <?php if($loginError): ?>
         <p class="error">Incorrect Student ID and/or Password</p>
@@ -51,13 +53,13 @@ if ($_POST) {
         <div class="form-group">
             <label for="inputStudentNumber" class="col-sm-2 control-label">StudentID</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputStudentNumber" name="inputStudentNumber" placeholder="Student ID" value="<?php echo $studentID; ?>" />
+                <input type="text" class="form-control" id="inputStudentNumber" name="inputStudentNumber" placeholder="Student ID" value="<?php echo $studentID; ?>" required />
             </div>
         </div>
         <div class="form-group">
             <label for="inputPassword" class="col-sm-2 control-label">Password</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" value="<?php echo $password; ?>" />
+                <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" value="<?php echo $password; ?>" required />
             </div>
         </div>
         <div class="form-group">
