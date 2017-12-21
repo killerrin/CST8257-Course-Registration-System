@@ -77,7 +77,7 @@ $dbManager->close();
 
 <div class="container">
     <h1>Course Selection</h1>
-    <p>Welcome <strong><?php echo $LoggedInUser->name; ?>!</strong> (not you? change user <a href="Login.php">here</a>)</p>
+    <p>Welcome <strong><?php echo $LoggedInUser->name; ?>!</strong> (not you? change user <a href="Logout.php">here</a>)</p>
     <p>You have registered <strong><?php echo $totalHours; ?></strong> hours for the selected semester.</p>
     <p>You can register <strong><?php echo $remainingHours; ?></strong> more hours of course(s) for the semester.</p>
     <p>Please note that the courses you have registered will not be displayed in the list.</p>
