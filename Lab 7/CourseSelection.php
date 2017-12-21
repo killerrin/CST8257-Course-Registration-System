@@ -22,7 +22,7 @@ function calculateHours($LoggedInUser) {
 
 if (isset($_POST['semester']) && count($_POST['course']) == 0)
     $selectCourseError = true;
-var_dump($selectCourseError);
+//var_dump($selectCourseError);
 if (!empty($_POST['course'])) {
     $dbManager = new DBManager();
     $dbManager->connect();
