@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="Contents/css/bootstrap.min.css" />
     <link rel="stylesheet" href="Contents/AlgCss/Site.css" />
     <link href="Contents/css/style.css" rel="stylesheet" />
+<<<<<<< HEAD
     <script type="text/javascript">
         function confirmDeletion() {
             var result = confirm("The selected registrations will be deleted!");
@@ -17,6 +18,10 @@
             }
         };
     </script>
+=======
+    <script src="Scripts/jquery-2.2.4.min.js"></script>
+    <script src="Contents/js/bootstrap.min.js"></script>
+>>>>>>> c6b21cbab5f6997ca54e29ca8c7d976d8503725e
 </head>
 <body>
 
