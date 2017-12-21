@@ -10,8 +10,8 @@ class DBCourseOfferRepository extends DBGenericRepository
         while ($row = mysqli_fetch_row($result))
         {
             $tmpArray = array();
-        	array_push($tmpArray, $this->rowToObject($row[0]));
-        	array_push($tmpArray, $this->rowToObject($row[1]));
+        	array_push($tmpArray, $this->rowToObject($row[0])); // CourseCode
+        	array_push($tmpArray, $this->rowToObject($row[1])); // SemesterCode
 
             array_push($arrayResult, $tmpArray);
         }
@@ -28,6 +28,13 @@ class DBCourseOfferRepository extends DBGenericRepository
                   WHERE
                     CourseCode = '$courseCode' AND
                     SemesterCode = '$semesterCode'";
+        $result = $this->dbManager->queryCustom($query);
+        return $this->parseQuery($result);
+    }
+
+    function getBySemester($semesterCode) {
+        $query = "SELECT * FROM $this->tableName
+                  WHERE SemesterCode = '$semesterCode'";
         $result = $this->dbManager->queryCustom($query);
         return $this->parseQuery($result);
     }

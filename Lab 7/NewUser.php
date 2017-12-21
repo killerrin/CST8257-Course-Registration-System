@@ -113,7 +113,7 @@ if ($_POST) {
         <div class="form-group">
             <label for="inputPassword2" class="col-sm-2 control-label">Password Again</label>
             <div class="col-sm-4">
-                <input type="password" class="form-control" id="inputPassword2" name="inputPassword2" placeholder="Password again" value="<?php echo $password2; ?>" required />
+                <input type="password" class="form-control" id="inputPassword2" name="inputPassword2" placeholder="Repeat Password" value="<?php echo $password2; ?>" required />
             </div>
             <div class="col-sm-6">
                 <p class="error"><?php echo $password2Error; ?></p>
