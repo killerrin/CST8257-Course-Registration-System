@@ -48,17 +48,19 @@ $LoggedInUser = isset($_SESSION["LoggedInUser"]) ? $_SESSION["LoggedInUser"] : (
         </strong>(not you? change user
         <a href="Logout.php">here</a>), the followings are your current registrations
     </p>
-    <form action="/CurrentRegistration.php" method="post" onsubmit="return confirmDeletion();">
+    <form action="CurrentRegistration.php" method="post" onsubmit="return confirmDeletion();">
         <table>
-            <tr>
-                <th>Year</th>
-                <th>Term</th>
-                <th>Course Code</th>
-                <th>Course Title</th>
-                <th>Hours</th>
-                <th>Select</th>
-            </tr>
-
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Term</th>
+                    <th>Course Code</th>
+                    <th>Course Title</th>
+                    <th>Hours</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody>
             <?php
             foreach ($courseRegistrations as $itemArray)
             {
@@ -89,10 +91,11 @@ $LoggedInUser = isset($_SESSION["LoggedInUser"]) ? $_SESSION["LoggedInUser"] : (
                 echo "</tr>";
             }
             ?>
+            </tbody>
         </table>
         <div class="buttonsContainer">
-            <input type="submit" name="deleteSelected" value="Delete Selected" />
-            <input type="reset" name="clear" value="Clear" />
+            <input type="submit" name="deleteSelected" value="Delete Selected" class="btn btn-primary" />
+            <input type="reset" name="clear" value="Clear" class="btn btn-info"/>
         </div>
     </form>
 </div>
