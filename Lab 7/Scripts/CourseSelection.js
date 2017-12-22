@@ -22,6 +22,9 @@ function makeAJAXCall(semesterCode) {
                 row.append("<input type='checkbox' name='course[]' value='" + course.courseCode + "' />");
                 $("#tbody").append(row);
             });
+
+            console.log(data);
+
             $("#weeklyHours").text(data[1]);
             $("#remainingHours").text(16 -data[1]);
         },
