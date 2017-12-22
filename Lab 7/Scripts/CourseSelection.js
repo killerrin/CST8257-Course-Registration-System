@@ -1,10 +1,13 @@
 ;
 console.log("Adding event listener!");
-$("body").on("change", "#semesterSelect", function() { makeAJAXCall($("#semesterSelect").val()) });
+$("body").on("change", "#semesterSelect", function () { makeAJAXCall($("#semesterSelect").val()) });
+$("body").on("click", "#courseSelectionClear", function () { makeAJAXCall($("#semesterSelect").val()) });
+
 $(document).ready(function() { makeAJAXCall($("#semesterSelect").val()) });
 
 function makeAJAXCall(semesterCode) {
     console.log("Fetching courses...");
+    $("#semesterHidden").val($("#semesterSelect").val());
     $.ajax("CourseSelectionAJAX.php?semesterCode=" + encodeURIComponent(semesterCode) + "&studentID=" + encodeURIComponent($("#studentID").val()), {
         success: function(data) {
             clearTable();

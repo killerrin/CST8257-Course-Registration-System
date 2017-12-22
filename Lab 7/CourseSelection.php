@@ -76,9 +76,8 @@ $dbManager->close();
     <p>You can register <strong id="remainingHours"></strong> more hours of course(s) for the semester.</p>
     <p>Please note that the courses you have registered will not be displayed in the list.</p>
 
-    <form action="CourseSelection.php" method="post">
     <div class="col-xs-3 col-xs-offset-9">
-        <select id="semesterSelect" class="form-control" name="semester">
+        <select id="semesterSelect" class="form-control">
             <?php foreach($terms as $term): ?>
                 <option value="<?php echo $term->semesterCode; ?>"><?php echo $term->year." ".$term->term; ?></option>
             <?php endforeach; ?>
@@ -87,6 +86,8 @@ $dbManager->close();
         <br />
     </div>
     <div>
+    <form action="CourseSelection.php" method="post">
+        <input type="hidden" id="semesterHidden" name="semester" />
         <table class="table">
             <thead>
             <row>
@@ -113,7 +114,7 @@ $dbManager->close();
                     <input type="submit" class="btn btn-primary btn-block" value="Submit" />
                 </div>
                 <div class="col-xs-6">
-                    <input type="reset" class="btn btn-info btn-block" value="Clear" />
+                    <input type="reset" id="courseSelectionClear" class="btn btn-info btn-block" value="Clear" />
                 </div>
             </div>
         </form>
